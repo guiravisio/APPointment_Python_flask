@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}Aulas{% endblock %}
+
+{% block content %}
+<h2>Aulas</h2>
+    <a class="btn btn-primary" href="novaaula">Nova Aula</a>
+    <table class="table" id="aulas">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Professor</th>
+            <th scope="col">Data</th>
+            <th scope="col">Início</th>
+            <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aula in aulas %}
+                <tr>
+                    <td>{{ aula.idAula }}</th>
+                    <td>{{ aula.nome }}</td>
+                    <td>{{ aula.descricao }}</td>
+                    <td>{{ aula.professor }}</td>
+                    <td>{{ aula.data }}</td>
+                    <td>{{ aula.horaInicio }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href='alteraraula/{{ aula.idAula }}'>Editar</a>
+                              <a class="dropdown-item" href='deletaraula/{{ aula.idAula }}'>Deletar</a>
+                              <a class="dropdown-item" href='listaalunos/{{ aula.idAula }}'>Alunos</a>
+                            </div>
+                          </div>
+                    </td>
+                </tr>
+                
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

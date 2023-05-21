@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}Aulas{% endblock %}
+
+{% block content %}
+    <h2>Detalhes da aula</h2>
+
+    <form action="" method = "POST">
+        <div class="form-group row">
+            <label for="name">Nome da aula</label>
+            <input type="text" class="form-control" minlength="1" maxlenght='60' name="nome" id="nome" value="{{aulas.nome}}">
+        </div>
+        <div class="form-group row">
+            <label for="year">Descrição</label>
+            <input type="text" class="form-control" minlength="1" maxlenght='3000' name="descricao" id="descricao" value="{{aulas.descricao}}">
+        </div>
+        <div class="form-group row">
+            <label for="year">IdProfessor</label>
+            <input type="text" class="form-control" minlength="1" maxlenght='3000' name="idProfessor" id="idProfessor" value="{{aulas.idProfessor}}">
+        </div>
+        <div class="form-group row">
+            <label for="price">Data</label>
+            <input type="date" class="form-control" name="data" id="data" value="{{aulas.data}}">
+        </div>
+        <div class="form-group row">
+            <label for="price">Horário início</label>
+            <input type="time" class="form-control" name="horaInicio" id="horaInicio" value="{{aulas.horaInicio}}">
+        </div>
+        <div class="form-group row">
+            <label for="price">Horário término</label>
+            <input type="time" class="form-control" name="horaTermino" id="horaTermino" value="{{aulas.horaTermino}}">
+        </div>
+        <button type="btnAdd" class="btn btn-primary">Salvar</button>
+        <a  href="{{ url_for('aulas') }}" class="btn btn-primary">Cancelar</a>
+    </form>
+{% endblock %}

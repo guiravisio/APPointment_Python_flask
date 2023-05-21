@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}Sobre{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Sobre</h2>
+    <p>Na contemporaneidade, a busca por aulas particulares têm crescido significativamente, seja para reforçar o conhecimento, preparar-se para exames ou simplesmente para aprender algo novo. Como consequência, a necessidade de uma plataforma que facilite o agendamento dessas aulas também tem aumentado. A gestão e organização eficiente das aulas são grandes responsáveis no sucesso do aprendizado, seja qual for a área de ensino. O alinhamento dos horários entre professores e alunos é importante para manter a consistência das aulas. 
+        Para tal demanda, o APPointment permite aos alunos agendar aulas particulares de forma rápida e eficiente, além de possibilitar aos professores uma maneira simples de gerenciar suas agendas.</p><br>
+    <hr>
+    <h2>Autores</h2>
+    <div class="row">
+        <div class="col-6">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='img/gui.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">Guilherme Oliveira</h5>
+                <p class="card-text">RA: 2840482023047</p>
+                <a href="https://www.linkedin.com/in/guilhermeravisio/" target="_blank" class="btn btn-primary">Linkedin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='img/gui.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">Guilherme Oliveira</h5>
+                <p class="card-text">RA: 2840482023047</p>
+                <a href="https://www.linkedin.com/in/guilhermeravisio/" target="_blank" class="btn btn-primary">Linkedin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}Confirma exclusão{% endblock %}
+
+{% block content %}
+<h2>Tem certeza que deseja deletar?</h2>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Confirmar</th>
+            <th scope="col">Cancelar</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                <tr>
+                    
+                    <td>{{ aulas.nome }}</td>
+                    <td>{{ aulas.descricao }}</td>
+                    <td><a href="confirmadeletaraula/{{ aulas.idAula }}">Confirmar</a></td>
+                    <td><a href="{{ url_for('aulas') }}">Cancelar</a></td>
+            </tr>
+                </tr>
+           
+        </tbody>
+    </table>
+{% endblock %}
