@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session 
 from flask_session import Session
 import pyodbc
+import json
+import zipfile
 import re
+import os
+
 
 appointment = Flask(__name__)
 appointment.config["SESSION_PERMANENT"] = False
@@ -166,16 +170,17 @@ def alteraraula(id):
     if request.method == 'GET':
         cursor.execute("SELECT * FROM dbo.Aulas WHERE idAula = ?", id)
         for row in cursor.fetchall():
-            aula.append({"idAula": row[0], "nome": row[1], "descricao": row[2], "data": row[3], "horaInicio": row[4], "horaTermino": row[5]})
+            aula.append({"idAula": row[0], "nome": row[1], "descricao": row[2], "idProfessor": row[3], "data": row[4], "horaInicio": row[5], "horaTermino": row[6]})
         conn.close()
         return render_template("novaaula.html", aulas = aula[0])
     if request.method == 'POST':
         nome = str(request.form["nome"])
         descricao = str(request.form["descricao"])
+        idProfessor = str(request.form["idProfessor"])
         data = str(request.form["data"])
         horaInicio = str(request.form["horaInicio"])
         horaTermino = str(request.form["horaTermino"])
-        cursor.execute("UPDATE dbo.Aulas SET nome = ?, descricao = ?, data = ?, horaInicio = ?, horaTermino = ? WHERE idAula = ?", nome, descricao, data, horaInicio, horaTermino, id)
+        cursor.execute("UPDATE dbo.Aulas SET nome = ?, descricao = ?, idProfessor = ?, data = ?, horaInicio = ?, horaTermino = ? WHERE idAula = ?", nome, descricao, idProfessor, data, horaInicio, horaTermino, id)
         conn.commit()
         conn.close()
         return redirect('/aulas')
@@ -237,6 +242,72 @@ def perfil():
 @appointment.route('/sobre')
 def sobre():
      return render_template("sobre.html")
+
+@appointment.route('/exportar')
+def exportar():
+    
+    return render_template("exportar.html")
+
+@appointment.route('/exportar/aulas',methods = ['GET','POST'])
+def exportaraulas():
+    conn = connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM dbo.Aulas")
+
+    aulas = cursor.fetchall()
+
+    lista_aulas = []
+    for row in aulas:
+        dicionario_resultado = {}
+        for idx, col in enumerate(cursor.description):
+            dicionario_resultado[col[0]] = row[idx]
+        lista_aulas.append(dicionario_resultado)
+
+    cursor.close()
+    conn.close()
+
+    with open('resultado.json', 'w', encoding='utf-8') as arquivo_json:
+        json.dump(lista_aulas, arquivo_json, indent=4, sort_keys=True, default=str, ensure_ascii=False)
+
+    with zipfile.ZipFile('aulas.zip', 'w') as arquivo_zip:
+        arquivo_zip.write('resultado.json')
+
+    os.remove('resultado.json')
+
+
+    return render_template("exportarconcluido.html")   
+
+@appointment.route('/exportar/usuarios',methods = ['GET','POST'])
+def exportarusuarios():
+    conn = connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM dbo.Usuarios")
+
+    usuarios = cursor.fetchall()
+
+    lista_usuarios = []
+    for row in usuarios:
+        dicionario_resultado = {}
+        for idx, col in enumerate(cursor.description):
+            dicionario_resultado[col[0]] = row[idx]
+        lista_usuarios.append(dicionario_resultado)
+
+    cursor.close()
+    conn.close()
+
+    with open('resultado.json', 'w', encoding='utf-8') as arquivo_json:
+        json.dump(lista_usuarios, arquivo_json, indent=4, sort_keys=True, default=str, ensure_ascii=False)
+
+    
+    with zipfile.ZipFile('usuarios.zip', 'w') as arquivo_zip:
+        arquivo_zip.write('resultado.json')
+
+    os.remove('resultado.json')
+
+
+    return render_template("exportarconcluido.html")   
 
 
 if(__name__ == "__main__"):
