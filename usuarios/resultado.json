@@ -1,0 +1,51 @@
+[
+    {
+        "email": "admin@admin.com",
+        "ic_admin": true,
+        "idUsuario": 1,
+        "nome": "Administrador",
+        "senha": "admin"
+    },
+    {
+        "email": "joice@appointment.com",
+        "ic_admin": false,
+        "idUsuario": 2,
+        "nome": "Joice",
+        "senha": "joice"
+    },
+    {
+        "email": "guilherme@appointment.com",
+        "ic_admin": false,
+        "idUsuario": 3,
+        "nome": "Guilherme",
+        "senha": "guilherme"
+    },
+    {
+        "email": "luan@appointment.com",
+        "ic_admin": false,
+        "idUsuario": 6,
+        "nome": "Luan",
+        "senha": "luan"
+    },
+    {
+        "email": "douglas@douglas.com",
+        "ic_admin": false,
+        "idUsuario": 7,
+        "nome": "Douglas",
+        "senha": "douglas"
+    },
+    {
+        "email": "joao@appointment.com",
+        "ic_admin": false,
+        "idUsuario": 8,
+        "nome": "João Doe",
+        "senha": "joao"
+    },
+    {
+        "email": "fabricio@appointment.com.br",
+        "ic_admin": false,
+        "idUsuario": 9,
+        "nome": "Fabricio",
+        "senha": "fabricio"
+    }
+]

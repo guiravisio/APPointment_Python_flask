@@ -1,0 +1,83 @@
+[
+    {
+        "data": "2023-05-16",
+        "descricao": "Introdução e conceitos básicos",
+        "horaInicio": "18:00:00",
+        "horaTermino": "21:00:00",
+        "idAula": 1,
+        "idProfessor": 1,
+        "nome": "Aula 01"
+    },
+    {
+        "data": "2023-05-17",
+        "descricao": "Configuração e primeiros passos",
+        "horaInicio": "18:00:00",
+        "horaTermino": "19:30:00",
+        "idAula": 2,
+        "idProfessor": 1,
+        "nome": "Aula 02"
+    },
+    {
+        "data": "2023-05-18",
+        "descricao": "Modelagem do banco e criação de tabelas",
+        "horaInicio": "18:00:00",
+        "horaTermino": "19:30:00",
+        "idAula": 3,
+        "idProfessor": 1,
+        "nome": "Aula 03"
+    },
+    {
+        "data": "2023-05-19",
+        "descricao": "Modelagem das primeiras páginas",
+        "horaInicio": "18:00:00",
+        "horaTermino": "19:30:00",
+        "idAula": 4,
+        "idProfessor": 1,
+        "nome": "Aula 04"
+    },
+    {
+        "data": "2023-05-20",
+        "descricao": "Formulários e primeiros INSERTS",
+        "horaInicio": "18:00:00",
+        "horaTermino": "20:30:00",
+        "idAula": 5,
+        "idProfessor": 1,
+        "nome": "Aula 05"
+    },
+    {
+        "data": "2023-05-21",
+        "descricao": "Implementação do sistema de login",
+        "horaInicio": "18:00:00",
+        "horaTermino": "19:30:00",
+        "idAula": 6,
+        "idProfessor": 1,
+        "nome": "Aula 06"
+    },
+    {
+        "data": "2023-05-22",
+        "descricao": "Modificações na listagem das aulas",
+        "horaInicio": "18:00:00",
+        "horaTermino": "19:30:00",
+        "idAula": 7,
+        "idProfessor": 1,
+        "nome": "Aula 07"
+    },
+    {
+        "data": "2023-05-23",
+        "descricao": "Inserir alunos nas aulas",
+        "horaInicio": "18:00:00",
+        "horaTermino": "19:30:00",
+        "idAula": 8,
+        "idProfessor": 1,
+        "nome": "Aula 08"
+    },
+    {
+        "data": "2023-05-24",
+        "descricao": "Listar alunos",
+        "horaInicio": "18:00:00",
+        "horaTermino": "19:30:00",
+        "idAula": 9,
+        "idProfessor": 1,
+        "nome": "Aula 09"
+    }
+]
